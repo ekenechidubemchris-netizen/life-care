@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  LifeCare General Hospital — Hospital Management System
+  ===========================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeCare General Hospital</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"></head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar navbar-expand-lg lc-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#" onclick="nav('home')">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#0B4F4A"/>
+          <path d="M24 12V36M12 24H36" stroke="#E7B84E" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span>LifeCare <small>GENERAL HOSPITAL &amp; CLINICS</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="background:#fff;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" data-view="home" href="#" onclick="nav('home')">Home</a></li>
+          <li class="nav-item"><a class="nav-link" data-view="about" href="#" onclick="nav('about')">About</a></li>
+          <li class="nav-item"><a class="nav-link" data-view="workers" href="#" onclick="nav('workers')">Workers</a></li>
+          <li class="nav-item"><a class="nav-link" data-view="facilities" href="#" onclick="nav('facilities')">Facilities</a></li>
+          <li class="nav-item"><a class="nav-link" data-view="service" href="#" onclick="nav('service')">Customer Service</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="navAuthSlot">
+            <button class="btn btn-auth" onclick="nav('auth')">Login / Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HOME ===================== -->
+  <section id="view-home" class="view-section active-view">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow mb-2">Est. Nigeria · CAC Incorporated · MDCN Licensed</p>
+        <h1 class="display-font">Care you can trust, records you can rely on.</h1>
+        <p class="lead">LifeCare General Hospital keeps every patient's history, prescription, and bill in one connected system — so nothing gets lost between the front desk and the ward.</p>
+        <div class="d-flex gap-2 flex-wrap mt-4">
+          <button class="btn btn-teal btn-lg px-4" onclick="nav('auth')">Book an Appointment</button>
+          <button class="btn btn-outline-cream btn-lg px-4" style="border:2px solid rgba(255,255,255,.6);color:#fff;border-radius:4px;" onclick="nav('about')">Learn More</button>
+        </div>
+        <div class="seal-strip">
+          <div class="seal"><b>7</b>Clinical Roles Online</div>
+          <div class="seal"><b>5</b>Wards &amp; ICU</div>
+          <div class="seal"><b>24/7</b>Records Access</div>
+          <div class="seal"><b>100%</b>Digitised Charts</div>
+        </div>
+      </div>
+    </header>
+
+    <section style="padding:4rem 0;">
+      <div class="container">
+        <p class="section-eyebrow text-center mb-2">How It Works</p>
+        <h2 class="section-title text-center">One record, every department</h2>
+        <div class="row g-4 mt-2">
+          <div class="col-md-4 reveal">
+            <div class="chart-card h-100">
+              <div class="cc-id">STEP 01</div>
+              <h5>Register or Log In</h5>
+              <p class="text-muted mb-0">Create a patient account with your Gmail address and NIN, or let our front desk register you in person.</p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="chart-card h-100">
+              <div class="cc-id">STEP 02</div>
+              <h5>See the Right Specialist</h5>
+              <p class="text-muted mb-0">Book an appointment with a doctor; your consultation, diagnosis, and prescriptions all land in one shared record.</p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="chart-card h-100">
+              <div class="cc-id">STEP 03</div>
+              <h5>Track It All Yourself</h5>
+              <p class="text-muted mb-0">Your Patient Portal shows lab results, billing status, and messages from staff — no phone calls needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="view-about" class="view-section container" style="padding-top:3rem;">
+    <div class="row justify-content-center text-center mb-5 reveal">
+      <div class="col-lg-7">
+        <p class="section-eyebrow mb-2">About LifeCare</p>
+        <h2 class="section-title">Built on accountability, run with care</h2>
+        <p class="text-muted">Everything from our legal registration to our daily ward rounds is designed around one goal: care you can trust because it's properly documented, properly licensed, and properly delivered.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=80" alt="Hospital corridor with medical staff">
+          <div class="ribbon">LIFECARE GENERAL HOSPITAL — MAIN CAMPUS</div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <p class="section-eyebrow mb-2">Our Story</p>
+        <h3 class="display-font mb-3">Why we opened our doors</h3>
+        <p class="text-muted">LifeCare began as a single consulting room and grew because the community around it needed somewhere reliable — somewhere a test result wouldn't get lost, a prescription wouldn't get rewritten three times, and a patient's history would actually be on hand at the second visit.</p>
+        <p class="text-muted">Today that same commitment shapes everything we do, from how we register a new patient to how we track medicine stock in our pharmacy.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 reveal">
+        <div class="chart-card h-100"><div class="cc-id"><i class="bi bi-bullseye"></i> MISSION</div><h5>Our Mission</h5><p class="text-muted mb-0">Accessible, well-documented, dignified healthcare for every patient, however complex or routine their need.</p></div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="chart-card h-100"><div class="cc-id"><i class="bi bi-eye"></i> VISION</div><h5>Our Vision</h5><p class="text-muted mb-0">A hospital where no file is ever lost, no prescription is ever miscommunicated, and every staff member owns their part of the journey.</p></div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="chart-card h-100"><div class="cc-id"><i class="bi bi-heart"></i> VALUES</div><h5>Our Values</h5><p class="text-muted mb-0">Respect for every patient's time and dignity, accuracy in every record, honesty in every conversation about cost and care.</p></div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center text-center mb-4 reveal">
+      <div class="col-lg-7"><p class="section-eyebrow mb-2">Legally Recognised</p><h3 class="display-font">Our incorporation and licensing</h3></div>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 reveal">
+        <div class="chart-card h-100"><div class="cc-id"><i class="bi bi-bank"></i> CAC</div><h5>Corporate Affairs Commission</h5><p class="text-muted mb-0">LifeCare General Hospital Ltd. is duly incorporated under Nigerian law, giving it the legal standing to own property, employ staff, and be held accountable as a registered business.</p></div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="chart-card h-100"><div class="cc-id"><i class="bi bi-patch-check"></i> MDCN</div><h5>Medical &amp; Dental Council of Nigeria</h5><p class="text-muted mb-0">Every doctor at LifeCare holds a valid licence to practice issued by the MDCN, confirming they've met the council's training, examination, and ethical standards.</p></div>
+      </div>
+      <div class="col-md-12 reveal">
+        <div class="chart-card"><div class="cc-id"><i class="bi bi-shield-check"></i> STATE HEALTH AUTHORITY</div><h5>Health Facility Monitoring &amp; Accreditation Agency</h5><p class="text-muted mb-0">The facility itself is registered with, and periodically inspected by, the State Ministry of Health, reviewing our equipment, hygiene standards, staffing, and record-keeping.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORKERS ===================== -->
+  <section id="view-workers" class="view-section container" style="padding-top:3rem;">
+    <div class="row justify-content-center text-center mb-5 reveal">
+      <div class="col-lg-7">
+        <p class="section-eyebrow mb-2">Our Team</p>
+        <h2 class="section-title">The people who keep LifeCare running</h2>
+        <p class="text-muted">Every patient interaction passes through one of these seven roles. Meet a few of the people behind them.</p>
+      </div>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Portrait of Margaret Obi"><h6>Margaret Obi</h6><p class="role">Administrator</p><p class="text-muted small mb-0">Oversees staff accounts, permissions, and hospital-wide reporting.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Portrait of Tunde Bakare"><h6>Tunde Bakare</h6><p class="role">Receptionist</p><p class="text-muted small mb-0">First point of contact — registers patients and books appointments.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Portrait of Dr. Folake Adeyemi"><h6>Dr. Folake Adeyemi</h6><p class="role">Doctor — General Medicine</p><p class="text-muted small mb-0">Consults patients, prescribes medication, requests lab tests.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80" alt="Portrait of Dr. Ibrahim Sule"><h6>Dr. Ibrahim Sule</h6><p class="role">Doctor — Pediatrics</p><p class="text-muted small mb-0">Specialises in the care of infants, children, and adolescents.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=400&q=80" alt="Portrait of Chidinma Eze"><h6>Chidinma Eze</h6><p class="role">Nurse</p><p class="text-muted small mb-0">Monitors admitted patients, records vitals, administers medication.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Portrait of Pharm. Yusuf Lawal"><h6>Pharm. Yusuf Lawal</h6><p class="role">Pharmacist</p><p class="text-muted small mb-0">Manages medicine inventory and dispenses prescribed drugs.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Portrait of Blessing Okonkwo"><h6>Blessing Okonkwo</h6><p class="role">Laboratory Technician</p><p class="text-muted small mb-0">Conducts diagnostic tests and uploads results for the doctor.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="worker-card"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=400&q=80" alt="Portrait of David Umeh"><h6>David Umeh</h6><p class="role">Accountant</p><p class="text-muted small mb-0">Handles billing, payments, and financial reporting.</p></div></div>
+    </div>
+    <div class="table-responsive reveal mb-5">
+      <table class="table lc-table bg-white rounded-2 overflow-hidden">
+        <thead><tr><th>Role</th><th>Main Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Admin</strong></td><td>Manages the entire system — staff accounts, permissions, reporting.</td></tr>
+          <tr><td><strong>Receptionist</strong></td><td>Registers patients and books appointments.</td></tr>
+          <tr><td><strong>Doctor</strong></td><td>Consults patients and prescribes drugs.</td></tr>
+          <tr><td><strong>Nurse</strong></td><td>Monitors patients and records vital signs.</td></tr>
+          <tr><td><strong>Pharmacist</strong></td><td>Dispenses drugs and manages inventory.</td></tr>
+          <tr><td><strong>Lab Technician</strong></td><td>Conducts tests and uploads results.</td></tr>
+          <tr><td><strong>Accountant</strong></td><td>Handles billing and payments.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== FACILITIES ===================== -->
+  <section id="view-facilities" class="view-section container" style="padding-top:3rem;">
+    <div class="row justify-content-center text-center mb-5 reveal">
+      <div class="col-lg-7">
+        <p class="section-eyebrow mb-2">Inside LifeCare</p>
+        <h2 class="section-title">Our facilities and departments</h2>
+        <p class="text-muted">Every department below works from the same digital records system, so information about you moves with you as you move through the hospital.</p>
+      </div>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=500&q=80" alt="Consulting room"><div class="fc-body"><div class="num"><i class="bi bi-clipboard2-pulse"></i> DEPT. 01</div><h5>Outpatient Consulting Rooms</h5><p class="text-muted small mb-0">Private rooms where doctors see scheduled and walk-in patients.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=500&q=80" alt="Hospital ward"><div class="fc-body"><div class="num"><i class="bi bi-hospital"></i> DEPT. 02</div><h5>General Wards A &amp; B</h5><p class="text-muted small mb-0">Shared wards for observation, recovery, or short-term treatment.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1631563019676-dade0dbdb8fc?auto=format&fit=crop&w=500&q=80" alt="ICU"><div class="fc-body"><div class="num"><i class="bi bi-heart-pulse"></i> DEPT. 03</div><h5>Intensive Care Unit</h5><p class="text-muted small mb-0">Closely monitored care for critically ill patients.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=500&q=80" alt="Maternity ward"><div class="fc-body"><div class="num"><i class="bi bi-flower1"></i> DEPT. 04</div><h5>Maternity Ward</h5><p class="text-muted small mb-0">Antenatal care, delivery, and postnatal recovery.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=500&q=80" alt="Pediatric ward"><div class="fc-body"><div class="num"><i class="bi bi-emoji-smile"></i> DEPT. 05</div><h5>Pediatric Ward</h5><p class="text-muted small mb-0">A child-friendly admission ward led by pediatric specialists.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=500&q=80" alt="Laboratory"><div class="fc-body"><div class="num"><i class="bi bi-droplet"></i> DEPT. 06</div><h5>Diagnostic Laboratory</h5><p class="text-muted small mb-0">Blood work and diagnostic tests sent straight to the requesting doctor.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=500&q=80" alt="Pharmacy shelves"><div class="fc-body"><div class="num"><i class="bi bi-capsule"></i> DEPT. 07</div><h5>In-House Pharmacy</h5><p class="text-muted small mb-0">Dispenses medication on-site with live stock tracking.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80" alt="Billing desk"><div class="fc-body"><div class="num"><i class="bi bi-cash-coin"></i> DEPT. 08</div><h5>Billing &amp; Accounts Office</h5><p class="text-muted small mb-0">Consultation fees, admission charges, and payment receipts.</p></div></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="facility-card"><img class="fc-img" src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=500&q=80" alt="Front desk"><div class="fc-body"><div class="num"><i class="bi bi-person-badge"></i> DEPT. 09</div><h5>Front Desk &amp; Records</h5><p class="text-muted small mb-0">The first stop for every visitor: registration and enquiries.</p></div></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== CUSTOMER SERVICE ===================== -->
+  <section id="view-service" class="view-section container" style="padding-top:3rem;">
+    <div class="row justify-content-center text-center mb-5 reveal">
+      <div class="col-lg-7">
+        <p class="section-eyebrow mb-2">We're Here to Help</p>
+        <h2 class="section-title">Customer service</h2>
+        <p class="text-muted">Questions about booking, billing, or your account? Browse common answers below, or send us a message directly.</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How do I create a patient account?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Click "Login / Sign Up", choose the <strong>Patient</strong> tab, then "Create Account". You'll need a full name, a Gmail address, a phone number, your NIN, and a password.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Why do I need to provide my NIN to sign up?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Your National Identification Number helps us confirm patient identity accurately and prevents duplicate or fraudulent records.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">How do I book or cancel an appointment?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Once logged in to your Patient Portal, go to "My Appointments" to book a new one or cancel an existing booking.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Where can I see my bills and payment status?</button></h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Your Patient Portal has a "Billing" section showing every bill raised against your account, what's been paid, and what's outstanding.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Is my data safe if I close the browser tab?</button></h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Yes — this demo saves to your browser's local storage, so your data (and your login) will still be there next time you open the site on this device.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7 reveal">
+        <p class="section-eyebrow mb-2 text-center">Still Need Help?</p>
+        <h3 class="display-font mb-4 text-center">Send us a message</h3>
+        <form id="guestContactForm" class="auth-card">
+          <div class="mb-3"><label class="form-label" for="guestName">Full name</label><input type="text" class="form-control" id="guestName" placeholder="Your name" required></div>
+          <div class="mb-3"><label class="form-label" for="guestEmail">Email or phone number</label><input type="text" class="form-control" id="guestEmail" placeholder="you@example.com" required></div>
+          <div class="mb-3"><label class="form-label" for="guestMessage">Your message</label><textarea class="form-control" id="guestMessage" rows="4" placeholder="How can we help?" required></textarea></div>
+          <button type="submit" class="btn btn-teal w-100">Send Message</button>
+          <div id="guestFormConfirmation" class="alert alert-success mt-3 d-none" role="alert"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AUTH (Login / Sign Up) ===================== -->
+  <section id="view-auth" class="view-section container" style="padding:3.5rem 0;">
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <h2 class="display-font text-center mb-1">Welcome to LifeCare</h2>
+        <p class="text-muted text-center mb-4">Log in to continue, or create a patient account.</p>
+
+        <div class="auth-role-toggle">
+          <button type="button" id="staffAuthBtn" class="active" onclick="setAuthTab('staff')">Staff / Worker</button>
+          <button type="button" id="patientAuthBtn" onclick="setAuthTab('patient')">Patient</button>
+        </div>
+
+        <div id="authError" class="alert alert-danger d-none" role="alert"></div>
+
+        <!-- STAFF LOGIN -->
+        <form id="staffLoginForm">
+          <div class="mb-3"><label class="form-label" for="staffIdentifier">Work email or phone number</label><input type="text" class="form-control" id="staffIdentifier" placeholder="you@lifecare.com" required></div>
+          <div class="mb-3"><label class="form-label" for="staffPassword">Password</label><input type="password" class="form-control" id="staffPassword" placeholder="••••••••" required></div>
+          <button type="submit" class="btn btn-teal w-100 mb-2">Log In as Staff</button>
+          <p class="text-muted small text-center mb-0">Staff accounts are created by the Admin and cannot be self-registered.</p>
+        </form>
+
+        <!-- PATIENT LOGIN -->
+        <form id="patientLoginForm" class="d-none">
+          <div class="mb-3"><label class="form-label" for="patientIdentifier">Email or phone number</label><input type="text" class="form-control" id="patientIdentifier" placeholder="you@example.com" required></div>
+          <div class="mb-3"><label class="form-label" for="patientPassword">Password</label><input type="password" class="form-control" id="patientPassword" placeholder="••••••••" required></div>
+          <button type="submit" class="btn btn-teal w-100 mb-2">Log In as Patient</button>
+          <p class="text-muted small text-center mb-0">New here? <a href="#" onclick="setPatientAuthMode('signup');return false;">Create a patient account</a>.</p>
+        </form>
+
+        <!-- PATIENT SIGN UP -->
+        <form id="patientSignupForm" class="d-none">
+          <div class="mb-3"><label class="form-label" for="suFullName">Full name</label><input type="text" class="form-control" id="suFullName" placeholder="e.g. Grace Nwosu" required></div>
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label" for="suEmail">Gmail address</label><input type="email" class="form-control" id="suEmail" placeholder="you@gmail.com" required></div>
+            <div class="col-md-6 mb-3"><label class="form-label" for="suPhone">Phone number</label><input type="tel" class="form-control" id="suPhone" placeholder="080..." required></div>
+          </div>
+          <div class="mb-3"><label class="form-label" for="suNin">National Identification Number (NIN)</label><input type="text" class="form-control" id="suNin" placeholder="11-digit NIN" required pattern="\d{11}" maxlength="11"><div class="form-text">Used only to confirm your identity and avoid duplicate records.</div></div>
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label" for="suPassword">Password</label><input type="password" class="form-control" id="suPassword" placeholder="At least 6 characters" required minlength="6"></div>
+            <div class="col-md-6 mb-3"><label class="form-label" for="suPasswordConfirm">Confirm password</label><input type="password" class="form-control" id="suPasswordConfirm" placeholder="Re-type password" required minlength="6"></div>
+          </div>
+          <button type="submit" class="btn btn-teal w-100 mb-2">Create Account</button>
+          <p class="text-muted small text-center mb-0">Already have an account? <a href="#" onclick="setPatientAuthMode('login');return false;">Log in here</a>.</p>
+        </form>
+
+        <details class="mt-4 small text-muted">
+          <summary style="cursor:pointer;">Sample login credentials (for testing)</summary>
+          <div class="mt-2">
+            <strong>Staff:</strong>
+            <ul class="mb-2">
+              <li>admin@lifecare.com / admin123 (Admin)</li>
+              <li>reception@lifecare.com / front123 (Receptionist)</li>
+              <li>doctor@lifecare.com / doc123 (Doctor)</li>
+              <li>nurse@lifecare.com / nurse123 (Nurse)</li>
+              <li>pharmacy@lifecare.com / pharm123 (Pharmacist)</li>
+              <li>lab@lifecare.com / lab123 (Lab Technician)</li>
+              <li>accounts@lifecare.com / acct123 (Accountant)</li>
+            </ul>
+            <strong>Patient:</strong>
+            <ul class="mb-0"><li>grace@example.com / patient123</li><li>samuel@example.com / patient123</li></ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <section id="view-dashboard" class="view-section">
+    <div class="container-fluid px-0">
+      <div class="dash-shell">
+        <aside class="dash-side" id="dashSide"><!-- built by app.js renderDashboard() --></aside>
+        <main class="dash-main">
+
+          <!-- ===== ADMIN ===== -->
+          <div id="dash-admin" class="d-none">
+            <div id="adm-overview" class="dash-section">
+              <div class="dash-topbar"><h3>Overview</h3></div>
+              <div class="row g-3" id="admOverviewTiles"></div>
+            </div>
+            <div id="adm-staff" class="dash-section">
+              <div class="dash-topbar"><h3>Manage Staff</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#addStaffModal"><i class="bi bi-plus-lg"></i> Add Staff</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th></tr></thead><tbody id="admStaffBody"></tbody></table></div>
+            </div>
+            <div id="adm-patients" class="dash-section">
+              <div class="dash-topbar"><h3>All Patients</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>Blood Group</th></tr></thead><tbody id="admPatientsBody"></tbody></table></div>
+            </div>
+            <div id="adm-reports" class="dash-section">
+              <div class="dash-topbar"><h3>Reports</h3></div>
+              <div class="row g-3" id="admReportCards"></div>
+            </div>
+          </div>
+
+          <!-- ===== RECEPTIONIST ===== -->
+          <div id="dash-receptionist" class="d-none">
+            <div id="rec-patients" class="dash-section">
+              <div class="dash-topbar"><h3>Registered Patients</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#registerPatientModal"><i class="bi bi-person-plus"></i> Register Patient</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>NIN</th></tr></thead><tbody id="recPatientsBody"></tbody></table></div>
+            </div>
+            <div id="rec-appointments" class="dash-section">
+              <div class="dash-topbar"><h3>Appointments</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#bookAppointmentModal"><i class="bi bi-calendar-plus"></i> Book Appointment</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Doctor</th><th>Date/Time</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody id="recApptBody"></tbody></table></div>
+            </div>
+            <div id="rec-admissions" class="dash-section">
+              <div class="dash-topbar"><h3>Admissions</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#admitPatientModal"><i class="bi bi-hospital"></i> Admit Patient</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Ward</th><th>Bed</th><th>Admitted On</th><th>Status</th><th>Action</th></tr></thead><tbody id="recAdmissionsBody"></tbody></table></div>
+            </div>
+          </div>
+
+          <!-- ===== DOCTOR ===== -->
+          <div id="dash-doctor" class="d-none">
+            <div id="doc-appointments" class="dash-section">
+              <div class="dash-topbar"><h3>My Patients Today</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Date</th><th>Time</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody id="docApptBody"></tbody></table></div>
+            </div>
+            <div id="doc-consultation" class="dash-section">
+              <div class="dash-topbar"><h3>Record a Consultation</h3></div>
+              <div class="auth-card" style="max-width:700px;">
+                <form id="consultForm">
+                  <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="consultPatientSelect" required></select></div>
+                  <div class="mb-3"><label class="form-label">Diagnosis</label><input type="text" class="form-control" id="consultDiagnosis" required></div>
+                  <div class="mb-3"><label class="form-label">Treatment</label><input type="text" class="form-control" id="consultTreatment" required></div>
+                  <div class="mb-3"><label class="form-label">Notes</label><textarea class="form-control" id="consultNotes" rows="3"></textarea></div>
+                  <button type="submit" class="btn btn-teal">Save Consultation to Patient Record</button>
+                </form>
+              </div>
+            </div>
+            <div id="doc-prescriptions" class="dash-section">
+              <div class="dash-topbar"><h3>Prescriptions</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#prescribeModal"><i class="bi bi-plus-lg"></i> Write Prescription</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Medicine</th><th>Dosage</th><th>Date</th><th>Status</th></tr></thead><tbody id="docRxBody"></tbody></table></div>
+            </div>
+            <div id="doc-lab" class="dash-section">
+              <div class="dash-topbar"><h3>Lab Requests &amp; Results</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#labRequestModal"><i class="bi bi-plus-lg"></i> Request Test</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Test</th><th>Date</th><th>Status</th><th>Result</th></tr></thead><tbody id="docLabBody"></tbody></table></div>
+            </div>
+          </div>
+
+          <!-- ===== NURSE ===== -->
+          <div id="dash-nurse" class="d-none">
+            <div id="nur-admitted" class="dash-section">
+              <div class="dash-topbar"><h3>Admitted Patients</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Ward</th><th>Bed</th><th>Admitted On</th><th>Latest Vitals</th></tr></thead><tbody id="nurAdmittedBody"></tbody></table></div>
+            </div>
+            <div id="nur-vitals" class="dash-section">
+              <div class="dash-topbar"><h3>Record Vital Signs</h3></div>
+              <div class="auth-card" style="max-width:680px;">
+                <form id="vitalsForm">
+                  <div class="mb-3"><label class="form-label">Patient</label><select class="form-select" id="vitalsPatientSelect" required></select></div>
+                  <div class="row">
+                    <div class="col-md-3 mb-3"><label class="form-label">Temp</label><input type="text" class="form-control" id="vitalsTemp" placeholder="37.0°C" required></div>
+                    <div class="col-md-3 mb-3"><label class="form-label">BP</label><input type="text" class="form-control" id="vitalsBp" placeholder="120/80" required></div>
+                    <div class="col-md-3 mb-3"><label class="form-label">Pulse</label><input type="text" class="form-control" id="vitalsPulse" placeholder="78 bpm" required></div>
+                    <div class="col-md-3 mb-3"><label class="form-label">Respiration</label><input type="text" class="form-control" id="vitalsResp" placeholder="16/min" required></div>
+                  </div>
+                  <div class="mb-3"><label class="form-label">Progress notes</label><textarea class="form-control" id="vitalsNotes" rows="3"></textarea></div>
+                  <button type="submit" class="btn btn-teal">Save Vitals</button>
+                </form>
+              </div>
+            </div>
+            <div id="nur-meds" class="dash-section">
+              <div class="dash-topbar"><h3>Administer Medication</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Medicine</th><th>Dosage</th><th>Status</th><th>Action</th></tr></thead><tbody id="nurMedsBody"></tbody></table></div>
+            </div>
+          </div>
+
+          <!-- ===== PHARMACIST ===== -->
+          <div id="dash-pharmacist" class="d-none">
+            <div id="pha-dispense" class="dash-section">
+              <div class="dash-topbar"><h3>Dispense Prescribed Drugs</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Medicine</th><th>Dosage</th><th>Prescribed By</th><th>Status</th><th>Action</th></tr></thead><tbody id="phaRxBody"></tbody></table></div>
+            </div>
+            <div id="pha-inventory" class="dash-section">
+              <div class="dash-topbar"><h3>Medicine Inventory</h3><button class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#restockModal"><i class="bi bi-plus-lg"></i> Restock Medicine</button></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Medicine</th><th>Quantity</th><th>Reorder Level</th><th>Unit Price</th><th>Status</th></tr></thead><tbody id="phaStockBody"></tbody></table></div>
+            </div>
+          </div>
+
+          <!-- ===== LAB TECHNICIAN ===== -->
+          <div id="dash-labtech" class="d-none">
+            <div id="lab-pending" class="dash-section">
+              <div class="dash-topbar"><h3>Pending Test Requests</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Test</th><th>Requested By</th><th>Date</th><th>Action</th></tr></thead><tbody id="labPendingBody"></tbody></table></div>
+            </div>
+            <div id="lab-completed" class="dash-section">
+              <div class="dash-topbar"><h3>Completed Tests &amp; Reports Sent</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Test</th><th>Sent To</th><th>Result</th></tr></thead><tbody id="labCompletedBody"></tbody></table></div>
+            </div>
+          </div>
+
+          <!-- ===== ACCOUNTANT ===== -->
+          <div id="dash-accountant" class="d-none">
+            <div id="acc-bills" class="dash-section">
+              <div class="dash-topbar"><h3>Billing &amp; Payments</h3></div>
+              <div class="row g-3 mb-4">
+                <div class="col-md-4"><div class="stat-tile"><div class="l mb-1">Total Billed</div><div class="n" style="font-size:1.4rem;" id="accTotalBilled">₦0</div></div></div>
+                <div class="col-md-4"><div class="stat-tile"><div class="l mb-1">Total Collected</div><div class="n" style="font-size:1.4rem;" id="accTotalCollected">₦0</div></div></div>
+                <div class="col-md-4"><div class="stat-tile"><div class="l mb-1">Outstanding</div><div class="n" style="font-size:1.4rem;" id="accOutstanding">₦0</div></div></div>
+              </div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Patient</th><th>Date</th><th>Total</th><th>Paid</th><th>Status</th><th>Actions</th></tr></thead><tbody id="accBillsBody"></tbody></table></div>
+            </div>
+            <div id="acc-newbill" class="dash-section">
+              <div class="dash-topbar"><h3>Generate New Bill</h3></div>
+              <div class="auth-card" style="max-width:680px;">
+                <form id="newBillForm">
+                  <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="billPatientSelect" required></select></div>
+                  <div id="billItemsContainer">
+                    <div class="row bill-item-row">
+                      <div class="col-7 mb-2"><input type="text" class="form-control" placeholder="Item description e.g. Consultation" required></div>
+                      <div class="col-5 mb-2"><input type="number" class="form-control" placeholder="Amount (₦)" required></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-teal mb-3" id="addBillItemBtn">+ Add another item</button>
+                  <button type="submit" class="btn btn-teal d-block">Generate Bill</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PATIENT PORTAL ===== -->
+          <div id="dash-patient" class="d-none">
+            <div id="pat-appointments" class="dash-section">
+              <div class="dash-topbar"><h3>My Appointments</h3></div>
+              <div class="table-responsive mb-4"><table class="table lc-table align-middle"><thead><tr><th>Doctor</th><th>Date/Time</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody id="patApptBody"></tbody></table></div>
+              <div class="auth-card" style="max-width:680px;">
+                <h5 class="display-font mb-3">Book a New Appointment</h5>
+                <form id="patBookApptForm">
+                  <div class="mb-3"><label class="form-label">Doctor</label><select class="form-select doctor-select" id="patApptDoctorSelect" required></select></div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3"><label class="form-label">Date</label><input type="date" class="form-control" id="patApptDate" required></div>
+                    <div class="col-md-6 mb-3"><label class="form-label">Time</label><input type="time" class="form-control" id="patApptTime" required></div>
+                  </div>
+                  <div class="mb-3"><label class="form-label">Reason for visit</label><input type="text" class="form-control" id="patApptReason" required></div>
+                  <button type="submit" class="btn btn-teal">Request Appointment</button>
+                </form>
+              </div>
+            </div>
+            <div id="pat-records" class="dash-section">
+              <div class="dash-topbar"><h3>My Medical Records</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Date</th><th>Doctor</th><th>Diagnosis</th><th>Treatment</th><th>Notes</th></tr></thead><tbody id="patRecordsBody"></tbody></table></div>
+            </div>
+            <div id="pat-prescriptions" class="dash-section">
+              <div class="dash-topbar"><h3>My Prescriptions</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Medicine</th><th>Dosage</th><th>Doctor</th><th>Date</th><th>Status</th></tr></thead><tbody id="patRxBody"></tbody></table></div>
+            </div>
+            <div id="pat-lab" class="dash-section">
+              <div class="dash-topbar"><h3>My Lab Results</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Test</th><th>Date</th><th>Status</th><th>Result</th></tr></thead><tbody id="patLabBody"></tbody></table></div>
+            </div>
+            <div id="pat-billing" class="dash-section">
+              <div class="dash-topbar"><h3>My Billing</h3></div>
+              <div class="table-responsive"><table class="table lc-table align-middle"><thead><tr><th>Date</th><th>Total</th><th>Paid</th><th>Outstanding</th><th>Status</th></tr></thead><tbody id="patBillingBody"></tbody></table></div>
+            </div>
+            <div id="pat-messages" class="dash-section">
+              <div class="dash-topbar"><h3>Messages</h3></div>
+              <div class="auth-card mb-4" style="max-width:680px;">
+                <form id="patMessageForm">
+                  <div class="mb-3"><label class="form-label">Subject</label><input type="text" class="form-control" id="patMsgSubject" required></div>
+                  <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" id="patMsgBody" rows="3" required></textarea></div>
+                  <button type="submit" class="btn btn-teal">Send Message</button>
+                </form>
+              </div>
+              <div id="patMessagesList"></div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MODALS ===================== -->
+
+  <div class="modal fade" id="addStaffModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Add Staff Account</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="addStaffForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Full name</label><input type="text" class="form-control" id="newStaffName" required></div>
+        <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="newStaffEmail" required></div>
+        <div class="mb-3"><label class="form-label">Phone</label><input type="text" class="form-control" id="newStaffPhone" required></div>
+        <div class="mb-3"><label class="form-label">Temporary password</label><input type="text" class="form-control" id="newStaffPassword" required></div>
+        <div class="mb-3"><label class="form-label">Role</label>
+          <select class="form-select" id="newStaffRole" required>
+            <option value="admin">Administrator</option>
+            <option value="receptionist">Receptionist</option>
+            <option value="doctor">Doctor</option>
+            <option value="nurse">Nurse</option>
+            <option value="pharmacist">Pharmacist</option>
+            <option value="labtech">Lab Technician</option>
+            <option value="accountant">Accountant</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Create Account</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="registerPatientModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Register New Patient</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="registerPatientForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Full name</label><input type="text" class="form-control" id="regPatientName" required></div>
+        <div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" id="regPatientEmail" required></div>
+        <div class="mb-3"><label class="form-label">Phone</label><input type="text" class="form-control" id="regPatientPhone" required></div>
+        <div class="mb-3"><label class="form-label">NIN (11 digits)</label><input type="text" class="form-control" id="regPatientNin" required pattern="\d{11}" maxlength="11"></div>
+        <p class="text-muted small mb-0">A default password of <code>patient123</code> will be set — the patient can be shown this to log in and change it later.</p>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Register Patient</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="bookAppointmentModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Book Appointment</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="bookAppointmentForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="apptPatientSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Doctor</label><select class="form-select doctor-select" id="apptDoctorSelect" required></select></div>
+        <div class="row">
+          <div class="col-md-6 mb-3"><label class="form-label">Date</label><input type="date" class="form-control" id="apptDate" required></div>
+          <div class="col-md-6 mb-3"><label class="form-label">Time</label><input type="time" class="form-control" id="apptTime" required></div>
+        </div>
+        <div class="mb-3"><label class="form-label">Reason</label><input type="text" class="form-control" id="apptReason" required></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Book Appointment</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="admitPatientModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Admit Patient</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="admitPatientForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="admitPatientSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Ward</label><select class="form-select ward-select" id="admitWardSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Bed number</label><input type="number" min="1" class="form-control" id="admitBed" required></div>
+        <div class="mb-3"><label class="form-label">Reason for admission</label><input type="text" class="form-control" id="admitReason" required></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Admit Patient</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="prescribeModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Write Prescription</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="prescribeForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="rxPatientSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Medicine</label><input type="text" class="form-control" id="rxMedicine" required></div>
+        <div class="mb-3"><label class="form-label">Dosage instructions</label><input type="text" class="form-control" id="rxDosage" required placeholder="e.g. 1 tablet twice daily for 5 days"></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Save Prescription</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="labRequestModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Request Laboratory Test</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="labRequestForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Patient</label><select class="form-select patient-select" id="labPatientSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Test name</label><input type="text" class="form-control" id="labTestName" required placeholder="e.g. Full Blood Count"></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Send Request to Lab</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="restockModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Restock Medicine</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="restockForm">
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Medicine</label><select class="form-select" id="restockSelect" required></select></div>
+        <div class="mb-3"><label class="form-label">Quantity to add</label><input type="number" min="1" class="form-control" id="restockQty" required></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Add Stock</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Record Test Result</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="resultForm">
+      <div class="modal-body">
+        <input type="hidden" id="resultTestId">
+        <p class="text-muted small mb-2" id="resultContext"></p>
+        <div class="mb-3"><label class="form-label">Result / report findings</label><textarea class="form-control" id="resultText" rows="4" required></textarea></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Save &amp; Send to Doctor</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Record Payment</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <form id="paymentForm">
+      <div class="modal-body">
+        <input type="hidden" id="paymentBillId">
+        <p class="text-muted small" id="paymentContext"></p>
+        <div class="mb-3"><label class="form-label">Amount received</label><input type="number" min="1" class="form-control" id="paymentAmount" required></div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-teal">Record Payment</button></div>
+    </form>
+  </div></div></div>
+
+  <div class="modal fade" id="receiptModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header no-print"><h5 class="modal-title">Receipt</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body" id="receiptContent"></div>
+    <div class="modal-footer no-print"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-teal" onclick="window.print()">Print Receipt</button></div>
+  </div></div></div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div class="toast-stack">
+    <div id="toastEl" class="toast align-items-center text-white bg-teal border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="lc-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h6>LifeCare General Hospital</h6>
+          <p class="text-white-50 small">Compassionate care, trusted medicine. CAC-incorporated, MDCN-licensed, and accredited by the State Health Facility Monitoring &amp; Accreditation Agency.</p>
+        </div>
+        <div class="col-lg-4">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#" onclick="nav('home')">Home</a></li>
+            <li class="mb-2"><a href="#" onclick="nav('about')">About</a></li>
+            <li class="mb-2"><a href="#" onclick="nav('workers')">Workers</a></li>
+            <li class="mb-2"><a href="#" onclick="nav('facilities')">Facilities</a></li>
+            <li class="mb-2"><a href="#" onclick="nav('service')">Customer Service</a></li>
+            <li class="mb-2"><a href="#" onclick="nav('auth')">Login / Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h6>Contact Us</h6>
+          <p class="small mb-2"><i class="bi bi-whatsapp me-2"></i><a href="https://wa.me/qr/NXYQ53ZWRMVNK1" target="_blank" rel="noopener">+234 090 3548 5852 (WhatsApp)</a></p>
+          <p class="small mb-2"><i class="bi bi-envelope me-2"></i><a href="mailto:ekenechidubemchris@gmail.com">ekenechidubemchris@gmail.com</a></p>
+          <p class="small mb-0"><i class="bi bi-linkedin me-2"></i><a href="https://www.linkedin.com/in/ekenechukwu-chidubem-789039309?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">Ekenechukwu Chidubem Christian</a></p>
+        </div>
+      </div>
+      <div class="fine text-center">
+        &copy; 2026 LifeCare General Hospital. All rights reserved.
+        &nbsp;·&nbsp; <a href="#" onclick="resetState();return false;">Reset demo data</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
